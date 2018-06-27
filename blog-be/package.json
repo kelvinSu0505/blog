@@ -1,0 +1,20 @@
+{
+  "name": "blog-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "mongoose": "^5.1.1",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0"
+  }
+}

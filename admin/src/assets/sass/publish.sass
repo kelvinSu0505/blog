@@ -1,0 +1,19 @@
+@import './common/common.sass'
+
+.publish-box
+    width: calc(100% - 240px - 40px)
+    @include margin_l(20px)
+    @include padding_b(50px)
+    .publish-top-box
+        @include margin_t(20px)
+        height: 40px
+    .publish-select-class
+        @include margin_t(20px)
+    .markdown_box
+        @include margin_t(20px)
+        .CodeMirror
+            min-height: 600px !important
+        .CodeMirror-scroll
+            min-height: 600px !important
+    .publish-btn-box
+        @include margin_t(20px)

@@ -1,0 +1,90 @@
+.common_submit_btn {
+  display: block;
+  width: 6.9rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #0099ee;
+  font-size: 0.3rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.03rem;
+  -o-border-radius: 0.03rem;
+  -moz-border-radius: 0.03rem;
+  -ms-border-radius: 0.03rem;
+  -webkit-border-radius: 0.03rem;
+  position: fixed;
+  bottom: 0.3rem;
+  left: 0.3rem;
+  z-index: 99; }
+
+.white_bg {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99; }
+
+.disable_scroll {
+  overflow: hidden;
+  height: 100vh; }
+
+.loading-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #151515;
+  z-index: 800;
+  height: 100%;
+  width: 100%;
+  animation: in 0.2s;
+  -webkit-animation: in 0.2s;
+  -ms-animation: in 0.2s;
+  -o-animation: in 0.2s;
+  -moz-animation: in 0.2s; }
+  .loading-box .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    padding: 0; }
+    .loading-box .loader::before {
+      content: "";
+      border-top: 11px solid rgba(255, 255, 255, 0.1);
+      border-right: 11px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 11px solid rgba(255, 255, 255, 0.1);
+      border-left: 11px solid #FF0077;
+      -webkit-animation: load 1.1s infinite linear;
+      animation: load 1.1s infinite linear;
+      display: block;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px; }
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/*# sourceMappingURL=loading.css.map */

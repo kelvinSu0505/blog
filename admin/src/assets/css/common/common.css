@@ -1,0 +1,34 @@
+.common_submit_btn {
+  display: block;
+  width: 6.9rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #0099ee;
+  font-size: 0.3rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.03rem;
+  -o-border-radius: 0.03rem;
+  -moz-border-radius: 0.03rem;
+  -ms-border-radius: 0.03rem;
+  -webkit-border-radius: 0.03rem;
+  position: fixed;
+  bottom: 0.3rem;
+  left: 0.3rem;
+  z-index: 99; }
+
+.white_bg {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99; }
+
+.disable_scroll {
+  overflow: hidden;
+  height: 100vh; }
+
+/*# sourceMappingURL=common.css.map */

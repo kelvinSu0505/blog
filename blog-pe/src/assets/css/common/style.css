@@ -1,0 +1,37 @@
+/*
+Error: Inconsistent indentation: 1 tab was used for indentation, but the rest of the document was indented using 4 spaces.
+        on line 132 of /Users/duyongqiang/Desktop/my-project/My-Blog/blog-pe/src/assets/sass/common/style.sass
+
+127:  * responsive:
+128:  * header styles
+129:  * --------------------------------------------------------------- 
+130:  *\/
+131: @media only screen and (max-width:1024px) 
+132: 	.nav-box
+133: 		left: 60px
+134: 
+135: @media only screen and (max-width:768px) 
+136: 	.nav-box
+137: 		left: 50px
+
+Backtrace:
+/Users/duyongqiang/Desktop/my-project/My-Blog/blog-pe/src/assets/sass/common/style.sass:132
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:494:in `block in tabulate'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:452:in `each'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:452:in `each_with_index'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:452:in `tabulate'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:417:in `_to_tree'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
+/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `load'
+/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Inconsistent indentation: 1 tab was used for indentation, but the rest of the document was indented using 4 spaces.\A         on line 132 of /Users/duyongqiang/Desktop/my-project/My-Blog/blog-pe/src/assets/sass/common/style.sass\A \A 127:  * responsive:\A 128:  * header styles\A 129:  * --------------------------------------------------------------- \A 130:  */\A 131: @media only screen and (max-width:1024px) \A 132: 	.nav-box\A 133: 		left: 60px\A 134: \A 135: @media only screen and (max-width:768px) \A 136: 	.nav-box\A 137: 		left: 50px"; }
