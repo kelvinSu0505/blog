@@ -1,8 +1,8 @@
 /*
  * @Author: YorkeD 
  * @Date: 2018-04-26 15:54:20 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-04-29 19:38:46
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-06-28 15:03:00
  * 首页
  */
 <template>
@@ -67,7 +67,7 @@
                     </router-link>
                 </ul>
                 <div class="go-top" @click="goTop">
-                    <i title="返回" class="iconfont">&#xe612;</i>
+                    <i title="返回第一屏" class="iconfont">&#xe612;</i>
                 </div>
             </div>
         </transition>

@@ -14,9 +14,27 @@
             width: 100%
             text-align: center
             height: 80px
+            position: relative
             .title-text
-                color: #09e
+                color: #fff
                 line-height: 80px
+            .back-btn
+                position: absolute
+                top: 20px
+                right: 40px
+                padding: 0 10px
+                width: 80px
+                height: 30px
+                line-height: 28px
+                border-radius: 5px
+                border: 1px solid #ffffff
+                color: #ffffff
+                font-weight: bold
+                text-align: center
+                &:hover
+                    border-color: #f07
+                    background: #f07
+                    cursor: pointer
     .detail-main
         width: 100%
         height: calc(100vh - 80px - 40px - 100px)
@@ -28,3 +46,26 @@
                 height: 40px
                 line-height: 40px
                 text-align: center
+            .text-box
+                width: 100%
+                height: auto
+                padding: 0 40px
+                .essay-class
+                    height: 80px
+                    line-height: 80px
+                    border-bottom: 2px solid #e5e5e5
+                    .class-text
+                        width: 20%
+                        padding: 0 10px
+                        font-size: 14px
+                        .iconfont
+                            padding-right: 5px
+                .essay-hint
+                    line-height: 50px
+                    font-size: 16px
+                    font-weight: bold
+                    color: #f07
+                    .hint-text
+                        @include margin_l(10px)
+                .essay-export
+                    @include margin_t(20px)

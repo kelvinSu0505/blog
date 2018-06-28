@@ -1,8 +1,8 @@
 /*
  * @Author: YorkeD 
  * @Date: 2018-05-15 12:48:26 
- * @Last Modified by:   YorkeD 
- * @Last Modified time: 2018-05-15 12:48:26 
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-06-28 14:56:37
  * 关于
  */
 <template>
@@ -25,7 +25,7 @@
                         <p class="text-box">
                             自己主要是技术栈是Vue全家桶，对前端工程化非常感兴趣，一直在学习前端工程化方面。
                             实际开发过企业官网、商城、行业平台，对微信公众号、小程序及M站都有相应的开发经验，
-                            还有混合开发经验（这里的混合开发指前端开发App，如：Cordova、HBuilder、Weex等）。
+                            还有混合开发经验（这里的混合开发指前端开发App，如：Cordova、HBuilder、Weex、Flutter等）。
                             后端的主要技术就是NodeJS。
                         </p>
                         <p class="text-box">
@@ -94,10 +94,12 @@ export default {
                     { '职业技能': 100, '名称': 'SASS'},
                     { '职业技能': 100, '名称': 'LESS'},
                     { '职业技能': 80, '名称': 'PostCSS'},
+                    { '职业技能': 80, '名称': 'TypeScript'},
                     { '职业技能': 60, '名称': 'Glup'},
                     { '职业技能': 50, '名称': 'NodeJS'},
                     { '职业技能': 50, '名称': 'MongDB'},
-                    { '职业技能': 30, '名称': 'TypeScript'},
+                    { '职业技能': 50, '名称': 'Flutter'},
+                    { '职业技能': 50, '名称': 'Dart2'},
                     { '职业技能': 20, '名称': 'React'},
                     { '职业技能': 20, '名称': 'Angular'},
                     { '职业技能': 20, '名称': 'Electron'},
