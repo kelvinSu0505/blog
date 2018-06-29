@@ -9,12 +9,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "fs": "0.0.1-security",
-    "http": "0.0.0",
-    "mongoose": "^5.1.1",
-    "querystring": "^0.2.0",
-    "url": "^0.11.0"
+    "babel-preset-env": "^1.4.0",
+    "babel-register": "^6.24.1",
+    "bluebird": "^3.5.0",
+    "cloudinary": "^1.8.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.1.1",
+    "koa-session": "^5.0.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.9.5",
+    "qiniu": "^6.1.13",
+    "sha1": "^1.1.1",
+    "speakeasy": "^2.0.0",
+    "uuid": "^3.0.1",
+    "xss": "^0.3.3"
   }
 }

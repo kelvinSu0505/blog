@@ -1,62 +1,85 @@
-const fs = require('fs');                                         // 主要用于文件解析
-const mongoose = require("mongoose");      
-const bodyParser = require('body-parser');                          // body-parser 中间件就可以了 处理Post请求
-const urlLib = require('url');                                    // 主要用于get 请求解析数据
-const express = require('express');
+/*
+ * @Author: Yorke 
+ * @Date: 2018-06-29 14:05:35 
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-06-29 14:06:43
+ * 后台服务入口文件
+ */
+ 'use strict'
 
-const db = mongoose.connect('mongodb://127.0.0.1:27017/blog',function(err){ // 连接数据库
-    if(err){
-        console.log('连接数据库失败')
-    }else{
-        console.log('连接数据库成功')
-    }
-});         
+ const fs = require('fs')
+ const path = require('path')
+ const mongoose = require('mongoose')
+ 
+ const db = 'mongodb://localhost/blog'
+ 
+ /**
+  * mongoose连接数据库
+  * @type {[type]}
+  */
+ mongoose.Promise = require('bluebird')
+ mongoose.connect(db)
+ 
 
-// 创建模型  主要用于定义MongoDB中集合Collection里文档document的结构　
-// 定义Schema非常简单，指定字段名和类型即可，支持的类型包括以下8种
-// 1、String => 字符串,2、Number => 数字,3、Date => 日期,4、Buffer => 二进制,5、Boolean => 布尔值,6、Mixed => 混合类型,7、ObjectId => 对象ID,8、Array => 数组
-
-var Schema = mongoose.Schema;
+// 设置跨域访问
 
 
-// 通过mongoose.Schema来调用Schema，然后使用new方法来创建schema对象
 
-var userScheMa = new Schema({
-	user_name: String,
-	user_pw: String
-});
+ /**
+  * 获取数据库表对应的js对象所在的路径
+  * @type {[type]}
+  */
+ const models_path = path.join(__dirname, '/app/models')
+ 
+ 
+ /**
+  * 已递归的形式，读取models文件夹下的js模型文件，并require
+  * @param  {[type]} modelPath [description]
+  * @return {[type]}           [description]
+  */
+ var walk = function(modelPath) {
+   fs
+     .readdirSync(modelPath)
+     .forEach(function(file) {
+       var filePath = path.join(modelPath, '/' + file)
+       var stat = fs.statSync(filePath)
+ 
+       if (stat.isFile()) {
+         if (/(.*)\.(js|coffee)/.test(file)) {
+           require(filePath)
+         }
+       }
+       else if (stat.isDirectory()) {
+         walk(filePath)
+       }
+     })
+ }
+ walk(models_path)
+ 
+ require('babel-register')
+ const Koa = require('koa')
+ const logger = require('koa-logger')
+ const session = require('koa-session')
+ const bodyParser = require('koa-bodyparser')
+ const app = new Koa()
+ 
+ app.keys = ['zhangivon']
+ app.use(logger())
+ app.use(session(app))
+ app.use(bodyParser())
+ 
 
-// 定义了一个新的模型，但是此模式还未和users集合有关联
-// exports.user = db.model('user', userScheMa); //  与users集合关联
-// [注意]创建Schema对象时，声明字段类型有两种方法，一种是首字母大写的字段类型，另一种是引号包含的小写字段类型
-
-var app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json({limit:'1mb'}));
-
-// // 设置跨域访问
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1');
-    res.header("Content-Type", "application/json;charset=utf-8");
-    next();
- });
-
-var isOK={
-    data:{
-        code:200,
-        msg:'登陆成功'
-    }
-}
-app.post('/blog/login',function(req,res){
-    console.log('进入post请求')
-    let userName = req.body.user_name;
-    let userPw = req.body.user_pw;
-    console.log(req.body,"body")
-    res.status(200)
-    res.json(isOK)
-});
-
-app.listen(8080);
+ /**
+  * 使用路由转发请求
+  * @type {[type]}
+  */
+ const router = require('./config/router')()
+ 
+ app
+   .use(router.routes())
+   .use(router.allowedMethods());
+ 
+ 
+ 
+ app.listen(1234)
+ console.log('app started at port 1234...');
