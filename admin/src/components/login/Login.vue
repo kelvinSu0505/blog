@@ -1,8 +1,8 @@
 /*
  * @Author: YorkeD 
  * @Date: 2018-05-05 17:07:02 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-05-05 17:13:39
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-08-12 20:21:02
  */
 <template>
     <div class="login-box">
@@ -15,14 +15,14 @@
                 <div class="form-con">
                     <Form ref="loginForm">
                         <FormItem prop="userName">
-                            <Input  placeholder="请输入用户名">
+                            <Input v-model="userName"  placeholder="请输入用户名">
                                 <span slot="prepend">
                                     <Icon :size="16" type="person"></Icon>
                                 </span>
                             </Input>
                         </FormItem>
                         <FormItem prop="password">
-                            <Input type="password" placeholder="请输入密码">
+                            <Input v-model="password" type="password" placeholder="请输入密码">
                                 <span slot="prepend">
                                     <Icon :size="14" type="locked"></Icon>
                                 </span>
@@ -40,14 +40,21 @@
 </template>
 <script>
 import '../../assets/sass/login.sass'
+import axios from 'axios'
 export default {
     data(){
         return{
-
+            userName: '',
+            password: '',
         }
     },
     beforeCreate(){
-        
+        if(localStorage.userInfo){
+            this.$Message.success('您已经登陆');
+            this.$router.push('/list')
+        }else{
+            this.$router.push('/login')
+        }
     },
     beforeMount () {
         
@@ -55,6 +62,38 @@ export default {
     methods:{
         loginBtn(){
             console.log('denglu')
+            axios({
+                url:'http://localhost:3000/user/login',
+                method: 'post',
+                data: {
+                    userName: this.userName,
+                    password: this.password
+                }
+            }).then(res=>{
+                console.log(res);
+                if(res.data.code == 200 && res.data.msg){
+                    // 本地存储
+                    new Promise((resolve,reject)=>{
+                        localStorage.userInfo = {
+                            userName:this.userName
+                            
+                        }
+                        setTimeout(()=>{resolve()},500)
+                    }).then(()=>{
+                        this.$Message.success('登陆成功');
+                        this.$router.push('/list')
+                    }).catch(err=>{
+                        this.$Message.error('登陆状态保存失败');
+                        console.log(err)
+                    })
+                }else{
+                    this.$Message.error('登陆失败');
+                }
+                
+            }).catch((err)=>{
+                console.log(err);
+                this.$Message.error('登陆失败');
+            })
         }
     },
     components:{

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
+    "axios": "^0.18.0",
     "echarts": "^4.0.4",
     "iview": "^2.13.1",
     "v-charts": "^1.16.10",

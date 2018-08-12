@@ -15,10 +15,10 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/list'
+            redirect: '/login'
         },{
             path: '*',
-            redirect: '/list'
+            redirect: '/login'
         },{
             path: '/list',
             component: ListView

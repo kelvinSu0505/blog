@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.7.0",
     "iview": "^2.13.1",
     "iview-loader": "^1.1.0",

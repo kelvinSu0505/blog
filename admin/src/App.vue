@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <HeaderIview></HeaderIview>
-        <NavIview></NavIview>
+        <HeaderIview v-if="commonStatus"></HeaderIview>
+        <NavIview v-if="commonStatus"></NavIview>
         <router-view></router-view>
     </div>
 </template>
@@ -17,7 +17,15 @@ export default {
     },
     data () {
         return {
-            
+            commonStatus:0,
+        }
+    },
+    beforeMount () {
+        console.log(this.$route.path);
+        if(this.$route.path == '/login'){
+            this.commonStatus = 0;
+        }else{
+            this.commonStatus = 1;
         }
     }
 }

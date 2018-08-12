@@ -1,8 +1,8 @@
 /*
  * @Author: YorkeD 
  * @Date: 2018-04-26 13:43:13 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-04-26 15:59:11
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-08-12 13:21:35
  * 打印文字效果 -- 全站公用
  */
 <template>
@@ -78,6 +78,7 @@ export default {
         width: 400px;
         font-size: 14px;
         font-weight:bold;
+        word-break:break-all;
     }
     .printed-box .printed-text .text-line{
         color: #ffffff
