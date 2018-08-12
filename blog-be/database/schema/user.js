@@ -13,7 +13,7 @@ const userSchema = new Schema({
     createAt: {type:Date,default:Date.now()},
     lastLoginAt: {type:Date,default:Date.now()}
     
-})
+})  // 可以增加配置项，改成user 默认会是users    ,{collection:'user'}
 
 userSchema.pre('save',function(next){           // pre的意思是，每一次都触发，第一个参数是触发条件这里是保存的时候触发，第二个是函数，处理触发业务
     bcrypt.genSalt(SALT_WORK_FACTOR,(err,salt)=>{    // 加盐处理
@@ -25,6 +25,17 @@ userSchema.pre('save',function(next){           // pre的意思是，每一次�
         })
     })        
 })
+
+userSchema.methods={
+    comparePassword:(_password,password)=>{
+        return new Promise((resolve,redirect)=>{
+            bcrypt.compare(_password,password,(err,isMatch)=>{
+                if(!err) resolve(isMatch)
+                else reject(err)
+            })
+        })
+    }
+}
 
 // ? 发布模型到表
 

@@ -5,10 +5,17 @@ const app = new Koa()
 
 const mongoose = require('mongoose')
 
+const bodyParser = require('koa-bodyparser')    // 用于接收post数据
+
 const Router = require('koa-router')
+
+const cors = require('koa2-cors')
 
 //引入connect
 const { connect , initSchemas } = require('./database/init.js')
+
+app.use(bodyParser())
+app.use(cors())
 
 let user = require('./appApi/user.js')
 let home = require('./appApi/home.js')
@@ -24,19 +31,10 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 //立即执行函数
-// ;(async () =>{
-//     await connect()
-//     initSchemas()
-//     const User = mongoose.model('User')
-//     let oneUser = new User({userName:'jspang2',password:'123456'})
-//     oneUser.save().then(()=>{
-//         console.log('插入成功')
-//     })
-//     let  users = await  User.findOne({}).exec()
-//     console.log('------------------')
-//     console.log(users)
-//     console.log('------------------')
-// })()
+;(async () =>{
+    await connect()
+    initSchemas()
+})()
 
 app.use(async(ctx)=>{
     ctx.body = '<h1>hello Koa2</h1>'
