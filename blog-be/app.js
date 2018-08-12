@@ -1,85 +1,47 @@
-/*
- * @Author: Yorke 
- * @Date: 2018-06-29 14:05:35 
- * @Last Modified by: Yorke
- * @Last Modified time: 2018-06-29 14:06:43
- * 后台服务入口文件
- */
- 'use strict'
 
- const fs = require('fs')
- const path = require('path')
- const mongoose = require('mongoose')
- 
- const db = 'mongodb://localhost/blog'
- 
- /**
-  * mongoose连接数据库
-  * @type {[type]}
-  */
- mongoose.Promise = require('bluebird')
- mongoose.connect(db)
- 
+const Koa = require('koa')
 
-// 设置跨域访问
+const app = new Koa()
 
+const mongoose = require('mongoose')
 
+const Router = require('koa-router')
 
- /**
-  * 获取数据库表对应的js对象所在的路径
-  * @type {[type]}
-  */
- const models_path = path.join(__dirname, '/app/models')
- 
- 
- /**
-  * 已递归的形式，读取models文件夹下的js模型文件，并require
-  * @param  {[type]} modelPath [description]
-  * @return {[type]}           [description]
-  */
- var walk = function(modelPath) {
-   fs
-     .readdirSync(modelPath)
-     .forEach(function(file) {
-       var filePath = path.join(modelPath, '/' + file)
-       var stat = fs.statSync(filePath)
- 
-       if (stat.isFile()) {
-         if (/(.*)\.(js|coffee)/.test(file)) {
-           require(filePath)
-         }
-       }
-       else if (stat.isDirectory()) {
-         walk(filePath)
-       }
-     })
- }
- walk(models_path)
- 
- require('babel-register')
- const Koa = require('koa')
- const logger = require('koa-logger')
- const session = require('koa-session')
- const bodyParser = require('koa-bodyparser')
- const app = new Koa()
- 
- app.keys = ['zhangivon']
- app.use(logger())
- app.use(session(app))
- app.use(bodyParser())
- 
+//引入connect
+const { connect , initSchemas } = require('./database/init.js')
 
- /**
-  * 使用路由转发请求
-  * @type {[type]}
-  */
- const router = require('./config/router')()
- 
- app
-   .use(router.routes())
-   .use(router.allowedMethods());
- 
- 
- 
- app.listen(1234)
- console.log('app started at port 1234...');
+let user = require('./appApi/user.js')
+let home = require('./appApi/home.js')
+// 装载所有子路由
+
+let router = new Router()
+
+router.use('/user',user.routes())
+router.use('/home',home.routes())
+// 加载路由中间件
+
+app.use(router.routes())
+app.use(router.allowedMethods())
+
+//立即执行函数
+// ;(async () =>{
+//     await connect()
+//     initSchemas()
+//     const User = mongoose.model('User')
+//     let oneUser = new User({userName:'jspang2',password:'123456'})
+//     oneUser.save().then(()=>{
+//         console.log('插入成功')
+//     })
+//     let  users = await  User.findOne({}).exec()
+//     console.log('------------------')
+//     console.log(users)
+//     console.log('------------------')
+// })()
+
+app.use(async(ctx)=>{
+    ctx.body = '<h1>hello Koa2</h1>'
+})
+
+app.listen(3000,()=>{
+    console.log('[Server] starting at port 3000')
+})
