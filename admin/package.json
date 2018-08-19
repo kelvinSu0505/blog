@@ -16,7 +16,8 @@
     "iview-loader": "^1.1.0",
     "simplemde": "^1.11.2",
     "vue": "^2.5.11",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-simplemde": "^0.4.8"
   },
   "browserslist": [
     "> 1%",

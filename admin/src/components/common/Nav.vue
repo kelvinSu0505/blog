@@ -1,8 +1,8 @@
 /*
  * @Author: YorkeD 
  * @Date: 2018-05-06 18:09:32 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-05-06 18:30:19
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-08-19 20:38:58
  * 导航栏--公共组建
  */
 <template>
@@ -13,8 +13,8 @@
                     <Icon type="ios-paper"></Icon>
                     内容管理
                 </template>
-                <MenuItem name="1-1">文章管理</MenuItem>
-                <MenuItem name="1-2">评论管理</MenuItem>
+                <MenuItem name="1-1">首页管理</MenuItem>
+                <MenuItem name="1-2">文章管理</MenuItem>
             </Submenu>
             <Submenu name="2">
                 <template slot="title">
@@ -55,6 +55,8 @@ export default {
             let vm = this;
             vm.nameData = name;
             if(name == '1-1'){
+                vm.$router.push({path:'/sethome'});
+            }else if(name == '1-2'){
                 vm.$router.push({path:'/list'});
             }
         }

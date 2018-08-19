@@ -3149,7 +3149,7 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-marked@*:
+marked@*, marked@^0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
 
@@ -5273,6 +5273,13 @@ vue-loader@^13.0.5:
 vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
+
+vue-simplemde@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/vue-simplemde/-/vue-simplemde-0.4.8.tgz#49e7e317e398d3a229c01d5e43443674da0347c6"
+  dependencies:
+    marked "^0.3.6"
+    simplemde "^1.11.2"
 
 vue-style-loader@^3.0.0:
   version "3.1.2"

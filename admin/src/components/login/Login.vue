@@ -2,7 +2,7 @@
  * @Author: YorkeD 
  * @Date: 2018-05-05 17:07:02 
  * @Last Modified by: Yorke
- * @Last Modified time: 2018-08-12 20:21:02
+ * @Last Modified time: 2018-08-19 19:28:08
  */
 <template>
     <div class="login-box">
@@ -76,7 +76,6 @@ export default {
                     new Promise((resolve,reject)=>{
                         localStorage.userInfo = {
                             userName:this.userName
-                            
                         }
                         setTimeout(()=>{resolve()},500)
                     }).then(()=>{

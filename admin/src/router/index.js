@@ -3,8 +3,10 @@ import Router from 'vue-router';
 
 // Login 登陆
 import LoginView from '../components/login/Login.vue'
-// List 登陆
+// List
 import ListView from '../components/list/List.vue'
+// 首页设置
+import setHome from '../components/home/setHome.vue'
 // Publish 发布
 import PublishView from '../components/publish/Publish.vue'
 
@@ -22,6 +24,9 @@ export default new Router({
         },{
             path: '/list',
             component: ListView
+        },{
+            path: '/sethome',
+            component: setHome
         },{
             path: '/login',
             component: LoginView

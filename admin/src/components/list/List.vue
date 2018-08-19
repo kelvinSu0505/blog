@@ -5,11 +5,14 @@
         </div>
         <Table :loading="listLoading" :columns="columns1" @on-row-click="goEdit" :data="data1"></Table>
         <Modal
-            v-model="layerStatus"
+            v-model="statusType"
             title="编辑询问"
-            :loading="layerLoading"
             @on-ok="asyncOK">
-            <p>确定要修改{{layerText}}的内容么？</p>
+            <div class="list-btn-all">
+                <Button type="primary" @click="downBtn">读者不可见</Button>
+                <Button type="primary" @click="upBtn">读者可见</Button>
+                <Button type="primary" @click="editBtn">重新编辑</Button>
+            </div>
         </Modal>
     </div>
     
@@ -30,44 +33,58 @@ export default {
                     key: 'text_class'
                 },
                 {
+                    title: '是否原创',
+                    key: 'type_class'
+                },
+                {
                     title: '文章标题',
                     key: 'text_title'
                 },
                 {
                     title: 'Time',
                     key: 'date'
+                },
+                {
+                    title: '文章状态',
+                    key: 'status'
                 }
             ],
             data1: [
                 {
                     num_index:'1',
                     text_class:'Nodejs',
+                    type_class:'是',
                     text_title:'基础环境搭建',
-                    date: '2016-10-03'
+                    date: '2016-10-03',
+                    status:'读者可见'
                 },
                 {
                     num_index:'2',
                     text_class:'Nodejs',
+                    type_class:'否',
                     text_title:'基础环境搭建',
-                    date: '2016-10-01'
+                    date: '2016-10-01',
+                    status:'读者不可见'
                 },
                 {
                     num_index:'3',
                     text_class:'Nodejs',
+                    type_class:'是',
                     text_title:'基础环境搭建',
-                    date: '2016-10-02'
+                    date: '2016-10-02',
+                    status:'读者可见'
                 },
                 {
                     num_index:'4',
                     text_class:'Nodejs',
+                    type_class:'否',
                     text_title:'基础环境搭建',
-                    date: '2016-10-04'
+                    date: '2016-10-04',
+                    status:'读者不可见'
                 }
             ],
             listLoading:false,              // 列表Loading效果控制
-            layerStatus:false,              // 弹窗开关控制
-            layerLoading:true,              // 弹窗Loading控制
-            layerText:'',                   // 弹窗内容控制
+            statusType:false                // 控制询问弹层
         }
     },
     beforeCreate(){
@@ -80,18 +97,26 @@ export default {
         // 编辑
         goEdit(data){
             let vm = this;
-            console.log(data);
-            vm.layerText = data.name;
-            vm.layerStatus = true;
+            vm.statusType = true;
         },
-        // 弹窗确认
         asyncOK(){
-            let vm = this;
-            vm.layerStatus = false;
+
         },
         // 发布文章
         goPublish(){
             this.$router.push({path:'/publish'})
+        },
+        // 读者不可见
+        downBtn(){
+
+        },
+        // 读者可见
+        upBtn(){
+
+        },
+        // 编辑
+        editBtn(){
+
         }
     }
 }
