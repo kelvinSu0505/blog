@@ -1,8 +1,8 @@
 /*
- * @Author: YorkeD 
- * @Date: 2018-04-25 20:08:26 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-04-25 20:09:48
+ * @Author: YorkeD
+ * @Date: 2018-04-25 20:08:26
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-11-01 19:41:32
  * 首页列表组件 -- 只存放10条最新文章
  */
 <template>
@@ -21,7 +21,7 @@ export default {
 
     },
     beforeMount () {
-        
+
     },
     methods:{
 

@@ -1,6 +1,6 @@
 /*
- * @Author: YorkeD 
- * @Date: 2018-05-15 12:48:26 
+ * @Author: YorkeD
+ * @Date: 2018-05-15 12:48:26
  * @Last Modified by: Yorke
  * @Last Modified time: 2018-06-28 14:56:37
  * 关于
@@ -41,8 +41,8 @@
                     </dd>
                 </dl>
                 <div class="cont-echarts-box l">
-                    <ve-histogram 
-                    :data="chartData" 
+                    <ve-histogram
+                    :data="chartData"
                     :settings="chartSettings"
                     >
                     </ve-histogram>
@@ -74,7 +74,6 @@
             </div>
         </div>
         <LoadingView v-if="loadingStatus"></LoadingView>
-    </div>                                  
 </template>
 <script>
 import LoadingView from '../common/Loading.vue'

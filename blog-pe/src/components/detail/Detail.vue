@@ -1,6 +1,6 @@
 /*
- * @Author: YorkeD 
- * @Date: 2018-04-27 22:34:20 
+ * @Author: YorkeD
+ * @Date: 2018-04-27 22:34:20
  * @Last Modified by: Yorke
  * @Last Modified time: 2018-06-28 17:10:57
  * 详情页
@@ -62,7 +62,7 @@ export default {
 
     },
     beforeMount () {
-        
+
     },
     methods:{
         // 后退按钮

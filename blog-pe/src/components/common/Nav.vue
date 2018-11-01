@@ -1,8 +1,8 @@
 /*
- * @Author: YorkeD 
- * @Date: 2018-04-25 20:07:52 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-04-26 16:38:23
+ * @Author: YorkeD
+ * @Date: 2018-04-25 20:07:52
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-11-01 19:45:35
  * 导航组件 -- 全站公用
  */
 <template>
@@ -34,7 +34,7 @@ export default {
 
     },
     beforeMount () {
-        
+
     },
     methods:{
         navTabBtn(index){

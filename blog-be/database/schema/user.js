@@ -12,10 +12,10 @@ const userSchema = new Schema({
     password: String,
     createAt: {type:Date,default:Date.now()},
     lastLoginAt: {type:Date,default:Date.now()}
-    
-},{ 
+
+},{
     collection:'user'   // 可以增加配置项，改成user 默认会是users    ,{collection:'user'}
-})  
+})
 
 userSchema.pre('save',function(next){           // pre的意思是，每一次都触发，第一个参数是触发条件这里是保存的时候触发，第二个是函数，处理触发业务
     bcrypt.genSalt(SALT_WORK_FACTOR,(err,salt)=>{    // 加盐处理
@@ -25,7 +25,7 @@ userSchema.pre('save',function(next){           // pre的意思是，每一次�
             this.password = hash
             next()
         })
-    })        
+    })
 })
 
 userSchema.methods={

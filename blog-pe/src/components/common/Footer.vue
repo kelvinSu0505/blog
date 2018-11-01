@@ -1,8 +1,8 @@
 /*
- * @Author: YorkeD 
- * @Date: 2018-04-25 20:08:59 
- * @Last Modified by: YorkeD
- * @Last Modified time: 2018-05-05 17:23:50
+ * @Author: YorkeD
+ * @Date: 2018-04-25 20:08:59
+ * @Last Modified by: Yorke
+ * @Last Modified time: 2018-11-01 19:45:16
  * 底部组件 -- 全站公用
  */
 <template>
@@ -36,7 +36,7 @@ export default {
 
     },
     beforeMount () {
-        
+
     },
     methods:{
 

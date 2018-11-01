@@ -32,7 +32,6 @@ router.post('/save_detial',async(ctx)=>{
 //     await typeDetail.findOne(typeId).exec().then(async(result)=>{
 //         console.log(result,"result");
 //     })
-     
 // })
 
 // 更改文章状态，接收参数，1是展示给用户 0是不展示给用户 更改字段 essayStatus
@@ -42,7 +41,6 @@ router.post('/save_detial',async(ctx)=>{
 //     await typeDetail.findOne(typeId).exec().then(async(result)=>{
 //         console.log(result,"result");
 //     })
-     
 // })
 
 // // 获取文章详情数据

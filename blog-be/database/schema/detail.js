@@ -13,7 +13,7 @@ const detailSchema = new Schema({
     lookNum:{type:Number,default:0},
     typeId:{type:Number},                 // ? 分类id 0：原生 JavaScript，1：CSS，2：Vue，3：NPM，4：Webpack，5：其他
     essayStatus:{type:Number,default:1},            // ? 文章状态： 1是展示给用户 0是不展示给用户
-    essayCont:String,   
+    essayCont:String,
     essayTitle:String
 },{
     collection:'detail'
